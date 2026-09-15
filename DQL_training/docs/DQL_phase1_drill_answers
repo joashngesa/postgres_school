@@ -1,0 +1,21 @@
+ENGINEERING QUESTIONS
+1. Null means the value is missing, '' means the value is blank and '  ' means the value has whitespaces.
+2. Coalesce only addresses null values whereas sometimes data entails blank values that coalesce might fail to addresse.
+3. This line of query trims the supplier_name column(removes whitespaces at the beginning and the end of the value) and returns null if the value is blank.
+4. it addresses blank spaces through use of nullif and addresses null values through use of coalesce by giving back the desired value (unknown supplier).
+5. Since the column contains numeric values, using ABS rounds the value to integer which changes the exact value of unit_cost.
+6 I do not know what the difference between cast and double_pipe is data type conversion.
+7. Trim removes characters that might lead to errors in casting a value to a specific data type .
+8. Wem need to preserve the raw data incase later on we need to refer anything from it, it is highly adviced not to change the raw data.
+9. It protects division where the value being divided by is zero which leads to syntax errors.
+10. Null is more accurate as it inferes that the shipping_cost is missing/ not applicable in instanmces where their was no product to ship as opposed to 0 which inferes that the shipping_cost incurred was 0.
+11. Case ordering matters because the first cases might result to exit of the case function negating all the options after the first case being examined.
+12. It prints the value meeting the case criteria and exits the case condition.
+13. Extract month gives back the month from the date value whereas date_trunc resets the value to the beginning of the month.
+14. Current_date gives the date only and the current_timestamp gives back the date and the time.
+15. loaded at shows when the data ingestion happened(sourcing raw data) whereas processed_at shows when the data was transformed.
+16. It finds the delivarance_variance_days where positive means that the delivery day was late, equal means it was on time as planned, negative means that the delivery was done earlier.
+17. Where the delivery is pending.
+18. Case refers to the beginning of the logical condition and when directs the value when the condition is met.
+19. It gives a chance to examine the difference in the values
+20. Validating data refers to when we classify or group the data to be invalid or invalid depending on the technical or business rules. It inspects the raw data and evaluates weather it meets the quality standards set. Tranforming data entails changing the format of the raw data or changing the output from raw data to allow enrichment of the data.

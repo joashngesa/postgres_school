@@ -1,0 +1,38 @@
+# Environment / credentials
+.env
+.env.*
+*.env
+
+# Database dumps
+*.dump
+*.backup
+*.bak
+
+# Large/full SQL backups
+backups/*
+!backups/.gitkeep
+
+# Raw datasets
+data/raw/*
+!data/raw/.gitkeep
+
+# Generated exports
+exports/
+output/
+outputs/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*~
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
