@@ -619,17 +619,12 @@ ON jr.product_key = br.product_key
 
 --Checkpoint D: Aggregate before join  + grain alignment
 --Drill 59: Supplier count by product first
-with supplier_count as (
+
     select
         product_key,
         count(supplier_key) as supplier_count
     from join_lab.bridge_product_supplier
     group by product_key
-)
-select
-    count(*) as row_count,
-    count(distinct product_key) as product_count
-from supplier_count
     ;
 
 
