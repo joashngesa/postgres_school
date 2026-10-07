@@ -31,6 +31,7 @@ select
 from one_supplier_tbl as ost
 join product_tbl as pt
 on pt.product_key = ost.product_key
+    ;
 
 
 
@@ -45,9 +46,7 @@ with supp_count as (
     from join_lab.bridge_product_supplier as bps
     join join_lab.dim_product as dp
     on dp.product_key = bps.product_key
-    group by bps.product_key,
-            dp.product_name,
-            dp.category
+    group by bps.product_key
     having count(bps.supplier_key) > 1
 ),
 product_tbl as (
@@ -77,6 +76,7 @@ from product_tbl as pt
 join supp_count as sc
 on sc.product_key = pt.product_key
 order by gross_order_value desc
+    ;
 
 
 
@@ -86,15 +86,16 @@ order by gross_order_value desc
 --  preserve suppliers even if they have 0 products
 
 select
-    bps.supplier_key,
+    ds.supplier_key,
     ds.supplier_name,
     count(bps.product_key) as product_count,
     count(*) filter (where bps.preferred_supplier is True) as preferred_product_count
 from join_lab.dim_supplier as ds
 left join join_lab.bridge_product_supplier as bps
 on ds.supplier_key = bps.supplier_key
-group by bps.supplier_key,
+group by ds.supplier_key,
         ds.supplier_name
+        ;
 
 
 
@@ -133,7 +134,6 @@ having count(bps.supplier_key) = 0
 with product_supplier_count as (
     select
         dp.product_key,
-        count(bps.product_key) as product_count,
         count(bps.supplier_key) as supplier_count
     from join_lab.dim_product as dp
     left join join_lab.bridge_product_supplier as bps
@@ -146,7 +146,7 @@ select
         when supplier_count = 1 then 'Single supplier'
         when supplier_count > 1 then 'Multi supplier'
     end as supplier_status,
-    count(product_count) as product_count
+    count(*) as product_count
 from product_supplier_count
 group by case
         when supplier_count = 0 then 'No supplier'

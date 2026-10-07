@@ -43,26 +43,28 @@ group by dc.customer_segment,
         dp.category,
         dw.warehouse_city
 order by customer_segment
+    ;
 
 
 
 --Drill 67: Add suppliers
-select
-    product_key,
-    count(*) as row_count
-from join_lab.bridge_product_supplier
-where preferred_supplier is True
-group by product_key;
+    --Investigative queries:
+    select
+        product_key,
+        count(*) as row_count
+    from join_lab.bridge_product_supplier
+    where preferred_supplier is True
+    group by product_key;
 
-select
-    supplier_key,
-    count(*) as row_count
-from join_lab.bridge_product_supplier
-where preferred_supplier is True
-group by supplier_key;
+    select
+        supplier_key,
+        count(*) as row_count
+    from join_lab.bridge_product_supplier
+    where preferred_supplier is True
+    group by supplier_key;
 
-select *
-from join_lab.dim_supplier;
+    select *
+    from join_lab.dim_supplier;
 
 select
     dc.customer_segment,
@@ -124,6 +126,17 @@ order by customer_segment
 
 
 --Drill 69: Identify the exact fanout path
---in drill 67, the fact_order_item and the bridge_product_supplier has many:many
---  relationship where multiple products can link to multiple order_items in fact table.
--- Thus the tables fansout when joined with the bridge_product_supplier table.
+-- in drill 67, when linking using product_key, the fact_order_item and
+--  the bridge_product_supplier has many:many relationship where multiple
+--  products can link to multiple order_items in fact table.
+-- Thus the tables fans out when joined with the bridge_product_supplier table.
+
+    --fact_order_item
+    --many
+    --  ↕
+    --many
+    --bridge_product_supplier
+    --many
+    --  ↓
+    --one
+    --dim_supplier
