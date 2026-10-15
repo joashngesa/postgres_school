@@ -145,6 +145,19 @@ select
     supplier_matches_count
 from order_item_count;
 
+--Engineering challenge:
+--order_supplier_matches
+--one row per order_item × supplier relationship
+--        ↓
+--supplier_match_count
+--one row per order_item
+--        ↓
+--fanout_classification
+--one row per order_item
+--        ↓
+--summary
+--one row per classification
+
 
 
 --Drill 19: Validating order level aggregation
