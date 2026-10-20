@@ -323,6 +323,7 @@ select
     classification
 from supplier_classification
 where classification = 'Multiple suppliers'
+    ;
 
 
 
@@ -421,5 +422,6 @@ select
     round(cumulative_revenue_pct, 2) as cumulative_revenue_pct,
     customer_segment
 from customer_summary
+    ;
 
 --
