@@ -329,5 +329,6 @@ join quality_report as qrp
     and qrp.reporting_month = rms.reporting_month
 order by region,
         reporting_month
+        ;
 
 
