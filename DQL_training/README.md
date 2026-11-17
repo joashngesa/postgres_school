@@ -5,9 +5,29 @@
 1. [X] 1. DQL foundations: retrieving data
 2. [X] 2. Expressions, nulls, strings, dates & conditional logic
 3. [X] 3. Aggregation & KPI engineering
-4. [ ] 4. Joins & relational reasoning
-5. [ ] 5. Subqueries, CTEs & set operations
+4. [X] 4. Joins & relational reasoning
+5. [X] 5. Subqueries, CTEs & set operations
 6. [ ] 6. Window functions & analytical SQL
+
+    1. [X] a. Window functions
+
+        1. [X] Ⅰ. Understanding over()
+        2. [X] Ⅱ. Understanding partition by ()
+        3. [X] Ⅲ. Window ordering
+        4. [X] Ⅳ. Multiple window calculations
+        5. [X] Ⅴ. Window functions vs group by
+        6. [X] Ⅵ. Foundational engneering challenges
+    2. [X] b. ranking & distributions
+
+        1. [X] Ⅰ.  Navigation foundations
+        2. [X] Ⅱ.  Business comparisons
+        3. [X] Ⅲ. First, last, Nth value
+        4. [ ] Ⅳ. Advanced navigation engineering
+        5. [ ] Ⅴ. Integrated SC investigations
+        6. [ ] Ⅵ. Independent engineering challenges
+    3. [ ] c.  Window frames & running calculations
+    4. [ ] d.  Advanced temporal comparative analysis
+    5. [ ] e. Integrated SC window engineering
 7. [ ] 7. DDL: designing database structures
 8. [ ] 8. Data modelling for data engineering
 9. [ ] 9. DML:  Loading & modifying data
